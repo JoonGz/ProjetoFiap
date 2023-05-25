@@ -84,14 +84,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Turma cadastrada com sucesso.";
 
                 return RedirectToAction("Index");
             }
             catch(Exception ex) 
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
 
@@ -120,14 +128,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Turma atualizada com sucesso.";
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
 
@@ -155,14 +171,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Turma inativada com sucesso.";
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
         #endregion

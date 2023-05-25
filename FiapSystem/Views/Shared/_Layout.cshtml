@@ -36,6 +36,39 @@
             </div>
         </nav>
     </header>
+    @{
+        if (@TempData["Message"] != null)
+        {
+            if (TempData["Type"].Equals("Sucesso"))
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="divAlertSuccess">
+                    @TempData["Message"]
+                </div>
+            }
+
+            if (TempData["Type"].Equals("Erro"))
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="divAlertError">
+                    @TempData["Message"]
+                </div>
+            }
+
+            if (TempData["Type"].Equals("Info"))
+            {
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    @TempData["Message"]
+                </div>
+            }
+
+            TempData.Remove("Message");
+            TempData.Remove("Type");
+        }
+        else
+        {
+            <div class="alert alert-success alert-dismissible fade show" style="display:none" role="alert" id="divAlertSuccess" tabindex="0"></div>
+            <div class="alert alert-danger alert-dismissible fade show" style="display:none" role="alert" id="divAlertError" tabindex="0"></div>
+        }
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

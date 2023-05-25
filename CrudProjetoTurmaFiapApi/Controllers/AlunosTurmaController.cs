@@ -31,7 +31,8 @@ namespace CrudProjetoTurmaFiapApi.Controllers
                     "SELECT A.turma_id, B.Nome NomeTurma, B.ano AnoTurma, consulta.QtdAlunos " +
                     "FROM Aluno_Turma A " +
                     "INNER JOIN Turma B ON A.turma_id = B.id " +
-                    "OUTER APPLY (SELECT COUNT(aso.aluno_id) as 'QtdAlunos' FROM Aluno_Turma aso WHERE aso.turma_id = B.id) consulta " +
+                    "OUTER APPLY (SELECT COUNT(aso.aluno_id) as 'QtdAlunos' FROM Aluno_Turma aso WHERE aso.turma_id = B.id and aso.ativo = 1) consulta " +
+                    "WHERE consulta.QtdAlunos <> 0 " +
                     "GROUP BY A.turma_id, B.Nome, B.ano, consulta.QtdAlunos";
 
                 var TurmasAso = await sqlConnection.QueryAsync<Aluno_Turma>(sql);
@@ -55,7 +56,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
                     "FROM Aluno_Turma A " +
                     "INNER JOIN Turma B ON A.turma_id = B.id " +
                     "INNER JOIN Aluno C ON A.aluno_id = C.id " +
-                    "WHERE turma_id = @idTurma";
+                    "WHERE turma_id = @idTurma and A.ativo = 1";
 
                 var alunoTurma = await sqlConnection.QueryAsync<Aluno_Turma>(sql, parameters);
 
@@ -92,7 +93,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
                 {
                     if (ex.HResult == -2146232060)
                     {
-                        return NotFound("A relação entre turma e aluno já existe.");
+                        return BadRequest("A relação entre turma e aluno já existe.");
                     }
                 }              
 
@@ -128,7 +129,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
                 {
                     if (ex.HResult == -2146232060)
                     {
-                        return NotFound("A relação entre turma e aluno já existe.");
+                        return BadRequest("A relação entre turma e aluno já existe.");
                     }
                 }
 

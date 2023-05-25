@@ -84,14 +84,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Aluno incluído com sucesso.";
 
                 return RedirectToAction("Index");
             }
             catch(Exception ex) 
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
 
@@ -111,6 +119,8 @@ namespace FiapSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Editar([Bind("Id, Nome, Usuario, Senha")] AlunoViewModel aluno)
         {
+            aluno.Senha = aluno.Senha == null ? "" : aluno.Senha;
+
             try
             {
                 ByteArrayContent byteContent = ConverterObjetoByte(aluno);
@@ -120,14 +130,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Aluno atualizado com sucesso.";
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
 
@@ -155,8 +173,16 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Aluno inativado com sucesso.";
 
                 return RedirectToAction("Index");
             }

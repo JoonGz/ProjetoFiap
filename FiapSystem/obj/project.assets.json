@@ -9077,11 +9077,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jgonzaga\\Desktop\\ProjetoFiap\\Projeto Fiap\\FiapSystem\\FiapSystem.csproj",
+      "projectUniqueName": "C:\\Users\\jgonzaga\\Desktop\\Projeto Fiap\\FiapSystem\\FiapSystem.csproj",
       "projectName": "FiapSystem",
-      "projectPath": "C:\\Users\\jgonzaga\\Desktop\\ProjetoFiap\\Projeto Fiap\\FiapSystem\\FiapSystem.csproj",
+      "projectPath": "C:\\Users\\jgonzaga\\Desktop\\Projeto Fiap\\FiapSystem\\FiapSystem.csproj",
       "packagesPath": "C:\\Users\\jgonzaga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jgonzaga\\Desktop\\ProjetoFiap\\Projeto Fiap\\FiapSystem\\obj\\",
+      "outputPath": "C:\\Users\\jgonzaga\\Desktop\\Projeto Fiap\\FiapSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jgonzaga\\AppData\\Roaming\\NuGet\\NuGet.Config",

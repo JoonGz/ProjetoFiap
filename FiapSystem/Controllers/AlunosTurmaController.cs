@@ -23,7 +23,7 @@ namespace FiapSystem.Controllers
             ENDPOINT = _configuration["AppConfig:Endpoints:Url_Api_AlunosTurma"];
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(ENDPOINT);
-                     
+
         }
         #endregion
 
@@ -36,7 +36,7 @@ namespace FiapSystem.Controllers
 
                 HttpResponseMessage response = await httpClient.GetAsync(ENDPOINT);
 
-                if (response.IsSuccessStatusCode) 
+                if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     AlunosTurma = JsonConvert.DeserializeObject<List<AlunoTurmaViewModel>>(content);
@@ -50,7 +50,6 @@ namespace FiapSystem.Controllers
             }
             catch (Exception ex)
             {
-                string message = ex.Message;
                 throw ex;
             }
         }
@@ -92,7 +91,7 @@ namespace FiapSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Novo([Bind("Aluno_id, Turma_id")]AlunoTurmaViewModel alunoTurma)
+        public async Task<IActionResult> Novo([Bind("Aluno_id, Turma_id")] AlunoTurmaViewModel alunoTurma)
         {
             try
             {
@@ -103,14 +102,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
 
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Relação incluída com sucesso.";
+
                 return RedirectToAction("Index");
             }
-            catch(Exception ex) 
-            {
-                throw ex;
+            catch (Exception ex)
+            {               
+                return RedirectToAction("Index");
             }
         }
 
@@ -145,14 +152,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Relação atualizada com sucesso.";
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
 
@@ -187,14 +202,22 @@ namespace FiapSystem.Controllers
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    TempData["Type"] = "Erro";
+                    TempData["Message"] = content;
+
                     ModelState.AddModelError(null, "Erro ao processar a solicitação de post.");
                 }
+
+                TempData["Type"] = "Sucesso";
+                TempData["Message"] = "Relação inativada com sucesso.";
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
         #endregion

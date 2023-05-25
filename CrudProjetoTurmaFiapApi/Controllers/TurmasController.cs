@@ -28,7 +28,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
         {
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
-                const string sql = "SELECT * FROM Turma";
+                const string sql = "SELECT * FROM Turma WHERE ativo = 1";
 
                 var turmas = await sqlConnection.QueryAsync<Turma>(sql);
 
@@ -65,11 +65,11 @@ namespace CrudProjetoTurmaFiapApi.Controllers
             var turmaExiste = BuscaTurmaByName(turma.Nome);
             if (turmaExiste.Result != null)
             {
-                return NotFound("O nome de turma informado já existe.");
+                return BadRequest("O nome de turma informado já existe.");
             }
             if (turma.Ano < DateTime.Now.Year)
             {
-                return NotFound("Não é permitido cadastrar turmas com datas anteriores da atual.");
+                return BadRequest("Não é permitido cadastrar turmas com datas anteriores da atual.");
             }
 
             turma.Ativo = true;
@@ -94,6 +94,11 @@ namespace CrudProjetoTurmaFiapApi.Controllers
         [HttpPut]
         public async Task<IActionResult> EditarTurma(Turma turma)
         {
+            if (turma.Ano < DateTime.Now.Year)
+            {
+                return BadRequest("Não é permitido cadastrar turmas com datas anteriores da atual.");
+            }
+
             var parameters = new
             {
                 turma.Id,
@@ -103,6 +108,15 @@ namespace CrudProjetoTurmaFiapApi.Controllers
 
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
+                const string sqlValidaAtt = "SELECT nome FROM Turma WHERE id = @id";
+
+                var nomeBase = await sqlConnection.QuerySingleOrDefaultAsync<String>(sqlValidaAtt, parameters);
+
+                if (nomeBase != turma.Nome && BuscaTurmaByName(turma.Nome).Result != null)
+                {
+                    return BadRequest("O nome de turma informado já existe.");
+                }
+
                 const string sql = "UPDATE Turma SET nome = @nome, ano = @ano WHERE id = @id";
 
                 await sqlConnection.ExecuteAsync(sql, parameters);

@@ -31,7 +31,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
         {
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
-                const string sql = "SELECT * FROM Aluno";
+                const string sql = "SELECT * FROM Aluno WHERE ativo = 1";
 
                 var Alunos = await sqlConnection.QueryAsync<Aluno>(sql);
 
@@ -71,7 +71,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
 
             if (validacao == ForcaDaSenha.Inaceitavel || validacao == ForcaDaSenha.Fraca)
             {
-                return NotFound("A senha informada está fraca.");
+                return BadRequest("A senha informada está fraca.");
             }
 
             aluno.Senha = CriarHash(aluno.Senha);
@@ -97,6 +97,18 @@ namespace CrudProjetoTurmaFiapApi.Controllers
         [HttpPut]
         public async Task<IActionResult> EditarAluno(Aluno aluno)
         {
+            if (aluno.Senha != "")
+            {
+                var validacao = verificaForcaSenha(aluno.Senha);
+
+                if (validacao == ForcaDaSenha.Inaceitavel || validacao == ForcaDaSenha.Fraca)
+                {
+                    return BadRequest("A senha informada está fraca.");
+                }
+
+                aluno.Senha = CriarHash(aluno.Senha);
+            }          
+
             var parameters = new
             {
                 aluno.Id,
@@ -107,7 +119,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
 
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
-                const string sql = "UPDATE Aluno SET nome = @nome, usuario = @usuario, senha = @senha WHERE id = @id";
+                string sql = "UPDATE Aluno SET nome = @nome, usuario = @usuario " + (aluno.Senha == "" ? "" : ",senha = @senha ") + "WHERE id = @id";
 
                 await sqlConnection.ExecuteAsync(sql, parameters);
 
