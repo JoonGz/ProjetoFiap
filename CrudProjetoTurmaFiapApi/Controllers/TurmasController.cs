@@ -135,6 +135,15 @@ namespace CrudProjetoTurmaFiapApi.Controllers
 
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
+                const string sqlValidaAtt = "SELECT COUNT(Turma_id) FROM Aluno_Turma WHERE turma_id = @id and ativo = 1";
+
+                var asoVigentes = await sqlConnection.QuerySingleOrDefaultAsync<int>(sqlValidaAtt, parameters);
+
+                if (asoVigentes != 0)
+                {
+                    return BadRequest("Não é possivel inativar está turma, pois ela tem relacionamentos ativos.");
+                }
+
                 const string sql = "UPDATE Turma SET ativo = 0 WHERE id = @id";
 
                 await sqlConnection.ExecuteAsync(sql, parameters);

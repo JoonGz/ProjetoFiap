@@ -147,7 +147,7 @@ namespace CrudProjetoTurmaFiapApi.Controllers
             };
 
             using (var sqlConnection = new SqlConnection(_connectionString))
-            {
+            {                
                 const string sql = "UPDATE Aluno_turma SET ativo = 0 WHERE aluno_id = @idAluno and turma_id = @idTurma";
 
                 await sqlConnection.ExecuteAsync(sql, parameters);

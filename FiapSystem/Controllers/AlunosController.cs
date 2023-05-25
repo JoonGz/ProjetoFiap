@@ -188,7 +188,7 @@ namespace FiapSystem.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Index");
             }
         }
         #endregion
