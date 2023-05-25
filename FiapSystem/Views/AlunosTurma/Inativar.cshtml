@@ -1,0 +1,42 @@
+﻿@model ProjetoTurmasFiap.Entities.AlunoTurmaViewModel
+
+@{
+    ViewData["Title"] = "Inativar";
+}
+
+<h1>Inativar Relação de Turma</h1>
+
+<h3>Tem certeza que deseja inativar está relação?</h3>
+<div>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group mb-2">
+        <label class="control-label">Aluno</label>
+        <select asp-for="Aluno_id" class="form-select" disabled>
+            <option value="0">Selecione o Aluno</option>
+            @foreach (var item in ViewBag.Alunos)
+            {
+                <option value="@(item.Id)">@(item.Nome)</option>
+            }
+        </select>
+        <span asp-validation-for="Aluno_id" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-2">
+        <label class="control-label">Turma</label>
+        <select asp-for="Turma_id" class="form-select" disabled>
+            <option value="0">Selecione a Turma</option>
+            @foreach (var item in ViewBag.Turmas)
+            {
+                <option value="@(item.Id)">@(item.Nome)</option>
+            }
+        </select>
+        <span asp-validation-for="Turma_id" class="text-danger"></span>
+    </div>
+    
+    <form asp-action="Inativar">
+        <input asp-for="Aluno_id" type="hidden" />
+        <input asp-for="Turma_id" type="hidden" />
+        <input type="submit" value="Inativar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

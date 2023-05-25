@@ -1,0 +1,105 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FiapSystem
+build_property.RootNamespace = FiapSystem
+build_property.ProjectDir = C:\Users\jgonzaga\Desktop\ProjetoFiap\Projeto Fiap\FiapSystem\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\jgonzaga\Desktop\ProjetoFiap\Projeto Fiap\FiapSystem
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/AlunosTurma/Detalhe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zVHVybWFcRGV0YWxoZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/AlunosTurma/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zVHVybWFcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/AlunosTurma/Inativar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zVHVybWFcSW5hdGl2YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/AlunosTurma/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zVHVybWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/AlunosTurma/Novo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zVHVybWFcTm92by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Alunos/Detalhe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXERldGFsaGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Alunos/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Alunos/Inativar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEluYXRpdmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Alunos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Alunos/Novo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bm9zXE5vdm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Turmas/Detalhe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXERldGFsaGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Turmas/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Turmas/Inativar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXEluYXRpdmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Turmas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Turmas/Novo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybWFzXE5vdm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jgonzaga/Desktop/ProjetoFiap/Projeto Fiap/FiapSystem/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-nbpyf4ik1z

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjetoTurmasFiap.Entities.AlunoTurmaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Relacionar Turmas</h1>
+
+<p>
+    <a asp-action="Novo">Criar Nova Relação</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Turma
+            </th>
+            <th>
+                Ano
+            </th>
+            <th>
+                Qtd. Alunos
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeTurma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnoTurma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QtdAlunos)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalhe", "Detalhe", new { idTurma=item.Turma_id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

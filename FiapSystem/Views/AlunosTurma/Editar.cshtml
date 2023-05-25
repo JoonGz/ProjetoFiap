@@ -1,0 +1,53 @@
+﻿@model ProjetoTurmasFiap.Entities.AlunoTurmaViewModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Atualizar Relação</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+
+            <input asp-for="Aluno_idOld" value="@(Model.Aluno_id)" type="hidden" />
+            <input asp-for="Turma_idOld" value="@(Model.Turma_id)" type="hidden" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-2">
+                <label class="control-label">Aluno</label>
+                <select asp-for="Aluno_id" class="form-select">
+                    <option value="0">Selecione o Aluno</option>
+                    @foreach (var item in ViewBag.Alunos)
+                    {
+                        <option value="@(item.Id)">@(item.Nome)</option>
+                    }
+                </select>
+                <span asp-validation-for="Aluno_id" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label class="control-label">Turma</label>
+                <select asp-for="Turma_id" class="form-select">
+                    <option value="0">Selecione a Turma</option>
+                    @foreach (var item in ViewBag.Turmas)
+                    {
+                        <option value="@(item.Id)">@(item.Nome)</option>
+                    }
+                </select>
+                <span asp-validation-for="Turma_id" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Atualizar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
